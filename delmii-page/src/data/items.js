@@ -26,11 +26,11 @@ export const art = [
 export const projects = [
   {
     id: 1,
-    title: "project name",
-    desc: "short description of what it does",
-    stack: ["React", "Node"],
+    title: "DelMii Page",
+    desc: "my personal portfolio website built with React and Tailwind CSS, showcasing my projects, art, and cats. It features a clean design and responsive layout.",
+    stack: ["React", "Node", "Tailwind CSS", "Vite"],
     link: "#",
-    year: "2024",
+    year: "2026",
   },
   {
     id: 2,
