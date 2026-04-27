@@ -5,7 +5,7 @@ const links = [
   { label: 'art', href: '#art', anchor: true },
   { label: 'projects', href: '#projects', anchor: true },
   { label: 'cat', href: '#cat', anchor: true },
-  { label: 'writeups', href: '/writeups', anchor: false },
+  { label: 'writeups', href: '#writeups', anchor: true },
 ]
 
 export default function Nav() {

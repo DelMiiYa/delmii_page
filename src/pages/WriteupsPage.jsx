@@ -19,124 +19,118 @@ const categoryColors = {
   OSINT: "#2f80ed",
 };
 
-function WriteupRow({ item, index }) {
+function WriteupCard({ item, index }) {
   const navigate = useNavigate();
 
   return (
-    <FadeIn delay={index * 0.06}>
+    <FadeIn delay={index * 0.08}>
       <motion.div
         onClick={() => navigate(`/writeups/${item.id}`)}
-        whileHover={{ x: 6 }}
-        transition={{ duration: 0.2 }}
+        whileHover={{ y: -4 }}
+        transition={{ duration: 0.25 }}
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr auto",
-          gap: "1rem",
-          padding: "1.25rem 1.5rem",
+          padding: "1.5rem",
           border: "1px solid var(--border)",
           borderRadius: "4px",
           background: "var(--surface)",
           cursor: "pointer",
           position: "relative",
           overflow: "hidden",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.75rem",
         }}
       >
-        {/* left accent on hover */}
+        {/* top accent line on hover */}
         <motion.div
-          initial={{ scaleY: 0 }}
-          whileHover={{ scaleY: 1 }}
-          transition={{ duration: 0.2 }}
+          initial={{ scaleX: 0 }}
+          whileHover={{ scaleX: 1 }}
+          transition={{ duration: 0.3 }}
           style={{
             position: "absolute",
-            left: 0,
             top: 0,
-            bottom: 0,
-            width: "2px",
+            left: 0,
+            right: 0,
+            height: "2px",
             background: categoryColors[item.category] || "var(--accent)",
-            transformOrigin: "top",
+            transformOrigin: "left",
           }}
         />
 
-        <div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.75rem",
-              marginBottom: "0.4rem",
-              flexWrap: "wrap",
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "1rem",
-                color: "var(--text)",
-                fontWeight: 400,
-              }}
-            >
-              {item.title}
-            </span>
-            <span
-              style={{
-                fontSize: "0.6rem",
-                letterSpacing: "0.1em",
-                color: categoryColors[item.category] || "var(--accent)",
-                border: `1px solid ${categoryColors[item.category] || "var(--accent)"}`,
-                padding: "1px 7px",
-                borderRadius: "2px",
-                opacity: 0.8,
-              }}
-            >
-              {item.category}
-            </span>
-            <span
-              style={{
-                fontSize: "0.6rem",
-                letterSpacing: "0.08em",
-                color: difficultyColor[item.difficulty],
-                opacity: 0.8,
-              }}
-            >
-              ● {item.difficulty}
-            </span>
-          </div>
-
-          <p
-            style={{
-              fontSize: "0.75rem",
-              color: "var(--muted)",
-              lineHeight: 1.6,
-              maxWidth: "600px",
-            }}
-          >
-            {item.summary}
-          </p>
-
-          <span
-            style={{
-              fontSize: "0.65rem",
-              color: "var(--muted)",
-              marginTop: "0.5rem",
-              display: "block",
-            }}
-          >
-            {item.ctf}
-          </span>
-        </div>
-
+        {/* tags row */}
         <div
           style={{
             display: "flex",
-            alignItems: "center",
             gap: "0.5rem",
-            alignSelf: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.6rem",
+              letterSpacing: "0.1em",
+              color: categoryColors[item.category] || "var(--accent)",
+              border: `1px solid ${categoryColors[item.category] || "var(--accent)"}`,
+              padding: "2px 7px",
+              borderRadius: "2px",
+              opacity: 0.85,
+            }}
+          >
+            {item.category}
+          </span>
+          <span
+            style={{
+              fontSize: "0.6rem",
+              color: difficultyColor[item.difficulty],
+              letterSpacing: "0.05em",
+            }}
+          >
+            ● {item.difficulty}
+          </span>
+        </div>
+
+        {/* title */}
+        <span
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "1.1rem",
+            color: "var(--text)",
+            fontWeight: 400,
+            lineHeight: 1.2,
+          }}
+        >
+          {item.title}
+        </span>
+
+        {/* summary */}
+        <p
+          style={{
+            fontSize: "0.75rem",
+            color: "var(--muted)",
+            lineHeight: 1.7,
+            flex: 1,
+          }}
+        >
+          {item.summary}
+        </p>
+
+        {/* footer */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: "auto",
           }}
         >
           <span style={{ fontSize: "0.65rem", color: "var(--muted)" }}>
+            {item.ctf}
+          </span>
+          <span style={{ fontSize: "0.65rem", color: "var(--muted)" }}>
             {item.year}
           </span>
-          <span style={{ fontSize: "0.75rem", color: "var(--muted)" }}>→</span>
         </div>
       </motion.div>
     </FadeIn>
@@ -195,9 +189,15 @@ export default function WriteupsPage() {
         </div>
       </FadeIn>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+          gap: "1rem",
+        }}
+      >
         {writeups.map((item, i) => (
-          <WriteupRow key={item.id} item={item} index={i} />
+          <WriteupCard key={item.id} item={item} index={i} />
         ))}
       </div>
     </div>

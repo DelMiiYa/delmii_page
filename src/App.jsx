@@ -4,9 +4,11 @@ import Hero from "./components/Hero";
 import ArtSection from "./components/ArtSection";
 import ProjectsSection from "./components/ProjectsSection";
 import CatSection from "./components/CatSection";
+import WriteupsSection from "./components/WriteupsSection";
 import Footer from "./components/Footer";
 import WriteupsPage from "./pages/WriteupsPage";
 import WriteupDetail from "./pages/WriteupDetail";
+import ScrollToTop from "./components/ScrollToTop";
 
 function Home() {
   return (
@@ -14,6 +16,7 @@ function Home() {
       <Nav />
       <Hero />
       <ProjectsSection />
+      <WriteupsSection />
       <ArtSection />
       <CatSection />
       <Footer />
@@ -24,6 +27,7 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter basename="/delmii-page">
+      <ScrollToTop />
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <Routes>
           <Route path="/" element={<Home />} />
