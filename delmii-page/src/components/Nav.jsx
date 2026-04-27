@@ -1,12 +1,29 @@
 import { motion } from 'framer-motion'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 const links = [
-  { label: 'art', href: '#art' },
-  { label: 'projects', href: '#projects' },
-  { label: 'cat', href: '#cat' },
+  { label: 'art', href: '#art', anchor: true },
+  { label: 'projects', href: '#projects', anchor: true },
+  { label: 'cat', href: '#cat', anchor: true },
+  { label: 'writeups', href: '/writeups', anchor: false },
 ]
 
 export default function Nav() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
+  const handleAnchor = (href) => {
+    if (!isHome) {
+      navigate('/')
+      setTimeout(() => {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <motion.nav
       initial={{ opacity: 0 }}
@@ -22,12 +39,11 @@ export default function Nav() {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '1.5rem 2.5rem',
-        borderBottom: '1px solid transparent',
         backdropFilter: 'blur(8px)',
       }}
     >
-      <a
-        href="#top"
+      <Link
+        to="/"
         style={{
           fontFamily: 'var(--font-display)',
           fontSize: '1.1rem',
@@ -37,27 +53,50 @@ export default function Nav() {
         }}
       >
         DelMii
-      </a>
+      </Link>
 
       <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
-        {links.map((link) => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              style={{
-                fontSize: '0.75rem',
-                color: 'var(--muted)',
-                textDecoration: 'none',
-                letterSpacing: '0.1em',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => e.target.style.color = 'var(--text)'}
-              onMouseLeave={e => e.target.style.color = 'var(--muted)'}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {links.map((link) =>
+          link.anchor ? (
+            <li key={link.href}>
+              <button
+                onClick={() => handleAnchor(link.href)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '0.75rem',
+                  color: 'var(--muted)',
+                  letterSpacing: '0.1em',
+                  cursor: 'pointer',
+                  padding: 0,
+                  fontFamily: 'var(--font-mono)',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={e => e.target.style.color = 'var(--text)'}
+                onMouseLeave={e => e.target.style.color = 'var(--muted)'}
+              >
+                {link.label}
+              </button>
+            </li>
+          ) : (
+            <li key={link.href}>
+              <Link
+                to={link.href}
+                style={{
+                  fontSize: '0.75rem',
+                  color: 'var(--muted)',
+                  textDecoration: 'none',
+                  letterSpacing: '0.1em',
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={e => e.target.style.color = 'var(--text)'}
+                onMouseLeave={e => e.target.style.color = 'var(--muted)'}
+              >
+                {link.label}
+              </Link>
+            </li>
+          )
+        )}
       </ul>
     </motion.nav>
   )
