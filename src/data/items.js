@@ -1,26 +1,26 @@
 export const art = [
   {
     id: 1,
-    title: "untitled 01",
-    year: "2024",
+    title: "Mitchi",
+    year: "2025",
     // replace src with your actual image path, e.g. "/my-portfolio/images/art1.jpg"
-    src: null,
+    src: "/delmii-page/src/assets/art/Mitchi.jpg",
     placeholder: "#1a1a18",
   },
   {
     id: 2,
-    title: "untitled 02",
-    year: "2024",
-    src: null,
+    title: "Mikage",
+    year: "2025",
+    src: "/delmii-page/src/assets/art/Mikage.jpg",
     placeholder: "#181a18",
   },
-  {
-    id: 3,
-    title: "untitled 03",
-    year: "2025",
-    src: null,
-    placeholder: "#1a1818",
-  },
+  // {
+  //   id: 3,
+  //   title: "untitled 03",
+  //   year: "2025",
+  //   src: null,
+  //   placeholder: "#1a1818",
+  // },
 ];
 
 export const projects = [
@@ -34,9 +34,9 @@ export const projects = [
   },
   {
     id: 2,
-    title: "another thing",
-    desc: "short description of what it does",
-    stack: ["JS", "CSS"],
+    title: "unititled 01",
+    desc: "a project that I will work on in the future, details to be added later.",
+    stack: ["Placeholder"],
     link: "#",
     year: "2025",
   },
@@ -45,26 +45,26 @@ export const projects = [
 export const cats = [
   {
     id: 1,
-    title: "sleeping again",
-    src: null,
+    title: "It's Heng",
+    src: "/delmii-page/src/assets/cats/HengCrown.jpg",
     placeholder: "#181818",
   },
   {
     id: 2,
-    title: "judging me",
-    src: null,
+    title: "his fat but sitting on a chair",
+    src: "/delmii-page/src/assets/cats/HengSit.jpg",
     placeholder: "#1a1a1a",
   },
   {
     id: 3,
-    title: "knocked something over",
-    src: null,
+    title: "Aesthetic Heng",
+    src: "/delmii-page/src/assets/cats/HengY2K.jpg",
     placeholder: "#181a1a",
   },
   {
     id: 4,
-    title: "peak performance",
-    src: null,
+    title: "Heng and his daughter",
+    src: "/delmii-page/src/assets/cats/HengAndNual.jpg",
     placeholder: "#1a1818",
   },
 ];
