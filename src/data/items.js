@@ -4,14 +4,14 @@ export const art = [
     title: "Mitchi",
     year: "2025",
     // replace src with your actual image path, e.g. "/my-portfolio/images/art1.jpg"
-    src: "/delmii-page/images/art/Mitchi.jpg",
+    src: "/delmii_page/images/art/Mitchi.jpg",
     placeholder: "#1a1a18",
   },
   {
     id: 2,
     title: "Mikage",
     year: "2025",
-    src: "/delmii-page/images/art/Mikage.jpg",
+    src: "/delmii_page/images/art/Mikage.jpg",
     placeholder: "#181a18",
   },
   // {
@@ -46,25 +46,25 @@ export const cats = [
   {
     id: 1,
     title: "It's Heng",
-    src: "/delmii-page/images/cats/HengCrown.jpg",
+    src: "/delmii_page/images/cats/HengCrown.jpg",
     placeholder: "#181818",
   },
   {
     id: 2,
     title: "his fat but sitting on a chair",
-    src: "/delmii-page/images/cats/HengSit.jpg",
+    src: "/delmii_page/images/cats/HengSit.jpg",
     placeholder: "#1a1a1a",
   },
   {
     id: 3,
     title: "Aesthetic Heng",
-    src: "/delmii-page/images/cats/HengY2K.jpg",
+    src: "/delmii_page/images/cats/HengY2K.jpg",
     placeholder: "#181a1a",
   },
   {
     id: 4,
     title: "Heng and his daughter",
-    src: "/delmii-page/images/cats/HengAndNual.jpg",
+    src: "/delmii_page/images/cats/HengAndNual.jpg",
     placeholder: "#1a1818",
   },
 ];
