@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import ArtSection from "./components/ArtSection";
@@ -26,7 +26,7 @@ function Home() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/delmii-page">
+    <HashRouter>
       <ScrollToTop />
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <Routes>
@@ -35,6 +35,6 @@ export default function App() {
           <Route path="/writeups/:id" element={<WriteupDetail />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
